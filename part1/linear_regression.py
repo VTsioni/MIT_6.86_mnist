@@ -5,6 +5,11 @@ import numpy as np
 def closed_form(X, Y, lambda_factor):
     """
     Computes the closed form solution of linear regression with L2 regularization
+    theta = (X.T *X +lambda_factor*I)^(-1) * X.T * Y
+    # solution:
+        I = np.identity(X.shape[1])
+        theta = np.linalg.inv(X.T @ X + lambda_factor * I) @ X.T @ Y
+        return theta
 
     Args:
         X - (n, d + 1) NumPy array (n datapoints each with d features plus the bias feature in the first dimension)
@@ -15,8 +20,10 @@ def closed_form(X, Y, lambda_factor):
         theta - (d + 1, ) NumPy array containing the weights of linear regression. Note that theta[0]
         represents the y-axis intercept of the model and therefore X[0] = 1
     """
+
     # YOUR CODE HERE
-    raise NotImplementedError
+    theta = np.dot(np.dot(np.linalg.inv(np.dot(X.transpose(), X) + lambda_factor * np.eye(X.shape[1])), X.transpose()), Y)
+    return theta
 
 ### Functions which are already complete, for you to use ###
 
