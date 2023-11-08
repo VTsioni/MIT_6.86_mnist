@@ -1,5 +1,5 @@
 import sys
-sys.path.append("..")
+sys.path.append("C:\\Users\\vasts\\Documents\\MIT\\MIT Statistics and Data Science\\mit686sup\\2\\resources_mnist\\mnist")
 import utils
 from utils import *
 import numpy as np
