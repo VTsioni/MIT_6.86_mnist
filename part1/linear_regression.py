@@ -6,7 +6,7 @@ def closed_form(X, Y, lambda_factor):
     """
     Computes the closed form solution of linear regression with L2 regularization
     theta = (X.T *X +lambda_factor*I)^(-1) * X.T * Y
-    # solution:
+    # solution: (@ is faster than np.matmul and np.dot)
         I = np.identity(X.shape[1])
         theta = np.linalg.inv(X.T @ X + lambda_factor * I) @ X.T @ Y
         return theta
@@ -22,8 +22,13 @@ def closed_form(X, Y, lambda_factor):
     """
 
     # YOUR CODE HERE
-    theta = np.dot(np.dot(np.linalg.inv(np.dot(X.transpose(), X) + lambda_factor * np.eye(X.shape[1])), X.transpose()), Y)
+    # ridge regression (the regularisation parameter is one half the norm squared of the weights!)
+    # theta = np.dot(np.dot(np.linalg.inv(np.dot(X.transpose(), X) + lambda_factor * np.eye(X.shape[1])), X.transpose()), Y)
+    # return theta
+    I = np.identity(X.shape[1])
+    theta = np.linalg.inv(X.T @ X + lambda_factor * I) @ X.T @ Y
     return theta
+
 
 ### Functions which are already complete, for you to use ###
 

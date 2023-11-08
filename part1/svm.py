@@ -25,6 +25,7 @@ def one_vs_rest_svm(train_x, train_y, test_x):
 def multi_class_svm(train_x, train_y, test_x):
     """
     Trains a linear SVM for multiclass classifciation using a one-vs-rest strategy
+    this one used sklearn so they don't actually write the code for the linear classifier
 
     Args:
         train_x - (n, d) NumPy array (n datapoints each with d features)
