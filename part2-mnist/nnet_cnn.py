@@ -22,6 +22,7 @@ def main():
     X_train = np.reshape(X_train, (X_train.shape[0], 1, 28, 28))
     X_test = np.reshape(X_test, (X_test.shape[0], 1, 28, 28))
 
+
     # Split into train and dev
     dev_split_index = int(9 * len(X_train) / 10)
     X_dev = X_train[dev_split_index:]
